@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>优美音乐 - Skywalker</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">Skywalker</a>
+            <ul class="nav-links">
+                <li><a href="index.html">首页</a></li>
+                <li><a href="photography.html">摄影空间</a></li>
+                <li><a href="tools.html">妙妙工具</a></li>
+                <li><a href="music.html" class="active">优美音乐</a></li>
+                <li><a href="contact.html">联系方式</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <section class="page-hero">
+        <div class="container">
+            <h1 class="page-title"><i class="fas fa-music"></i> 优美音乐</h1>
+            <p class="page-subtitle">聆听美好，感受旋律的力量</p>
+        </div>
+    </section>
+
+    <section class="music-section">
+        <div class="container">
+            <div class="player-container">
+                <div class="player-main">
+                    <div class="album-art">
+                        <div class="album-placeholder" id="albumArt">
+                            <i class="fas fa-music"></i>
+                        </div>
+                        <div class="album-glow"></div>
+                    </div>
+                    
+                    <div class="waveform-container">
+                        <canvas id="waveformCanvas"></canvas>
+                        <div class="waveform-bars" id="waveformBars">
+                            <span></span><span></span><span></span><span></span><span></span>
+                            <span></span><span></span><span></span><span></span><span></span>
+                            <span></span><span></span><span></span><span></span><span></span>
+                            <span></span><span></span><span></span><span></span><span></span>
+                            <span></span><span></span><span></span><span></span><span></span>
+                            <span></span><span></span><span></span><span></span><span></span>
+                            <span></span><span></span><span></span><span></span><span></span>
+                            <span></span><span></span><span></span><span></span><span></span>
+                        </div>
+                    </div>
+
+                    <div class="song-info">
+                        <h2 id="songTitle">选择一首歌曲</h2>
+                        <p id="songArtist">--</p>
+                    </div>
+
+                    <div class="progress-container">
+                        <span id="currentTime">0:00</span>
+                        <div class="progress-bar" id="progressBar">
+                            <div class="progress-fill" id="progressFill"></div>
+                        </div>
+                        <span id="totalTime">0:00</span>
+                    </div>
+
+                    <div class="player-controls">
+                        <button class="control-btn" id="shuffleBtn" title="随机播放">
+                            <i class="fas fa-random"></i>
+                        </button>
+                        <button class="control-btn" id="prevBtn" title="上一首">
+                            <i class="fas fa-step-backward"></i>
+                        </button>
+                        <button class="control-btn play-btn" id="playBtn" title="播放/暂停">
+                            <i class="fas fa-play" id="playIcon"></i>
+                        </button>
+                        <button class="control-btn" id="nextBtn" title="下一首">
+                            <i class="fas fa-step-forward"></i>
+                        </button>
+                        <button class="control-btn" id="repeatBtn" title="循环播放">
+                            <i class="fas fa-redo"></i>
+                        </button>
+                    </div>
+
+                    <div class="volume-control">
+                        <i class="fas fa-volume-down" id="volumeIcon"></i>
+                        <input type="range" id="volumeSlider" min="0" max="100" value="70">
+                    </div>
+                </div>
+            </div>
+
+            <div class="playlist-section">
+                <h3 class="playlist-title"><i class="fas fa-list"></i> 我的收藏</h3>
+                <div class="playlist" id="playlist">
+                    <div class="playlist-item" data-index="0">
+                        <div class="playlist-item-info">
+                            <span class="playlist-item-title">示例歌曲 1</span>
+                            <span class="playlist-item-artist">艺术家</span>
+                        </div>
+                        <span class="playlist-item-duration">3:45</span>
+                    </div>
+                    <div class="playlist-item" data-index="1">
+                        <div class="playlist-item-info">
+                            <span class="playlist-item-title">示例歌曲 2</span>
+                            <span class="playlist-item-artist">艺术家</span>
+                        </div>
+                        <span class="playlist-item-duration">4:20</span>
+                    </div>
+                    <div class="playlist-item" data-index="2">
+                        <div class="playlist-item-info">
+                            <span class="playlist-item-title">示例歌曲 3</span>
+                            <span class="playlist-item-artist">艺术家</span>
+                        </div>
+                        <span class="playlist-item-duration">3:12</span>
+                    </div>
+                    <div class="playlist-item add-music" id="addMusicBtn">
+                        <i class="fas fa-plus-circle"></i>
+                        <span>添加我的音乐</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="music-tips">
+                <div class="tip-card">
+                    <i class="fas fa-lightbulb"></i>
+                    <h4>使用提示</h4>
+                    <p>点击"添加我的音乐"按钮，上传本地音乐文件即可播放。支持 MP3、WAV、OGG 等格式。</p>
+                </div>
+                <div class="tip-card">
+                    <i class="fas fa-headphones"></i>
+                    <h4>音质说明</h4>
+                    <p>音乐播放器支持高质量音频播放，建议使用耳机获得最佳体验。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <input type="file" id="audioFileInput" accept="audio/*" multiple style="display: none;">
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2026 Skywalker. All rights reserved.</p>
+                <div class="social-links">
+                    <a href="https://github.com/SkywalkerLiu" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

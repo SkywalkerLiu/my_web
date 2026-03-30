@@ -352,15 +352,12 @@ body {
 }
 
 .highlights-grid {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: nowrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
 }
 
 .highlight-card {
-    flex: 1;
-    max-width: 250px;
     background: var(--bg-color);
     padding: 40px 30px;
     border-radius: 16px;
@@ -1014,8 +1011,8 @@ body {
 .sponsor-grid {
     display: flex;
     justify-content: center;
-    gap: 40px;
-    flex-wrap: wrap;
+    gap: 30px;
+    flex-wrap: nowrap;
 }
 
 .sponsor-card {
@@ -1026,7 +1023,7 @@ body {
     box-shadow: var(--shadow);
     transition: var(--transition);
     border: 1px solid var(--border-color);
-    min-width: 200px;
+    min-width: 180px;
 }
 
 .sponsor-card:hover {
@@ -1547,11 +1544,15 @@ body {
     }
 
     .highlights-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .sponsor-grid {
         flex-wrap: wrap;
     }
-    
-    .highlight-card {
-        max-width: 100%;
+
+    .sponsor-card {
+        min-width: 100%;
     }
 
     .gallery-grid {

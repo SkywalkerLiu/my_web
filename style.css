@@ -352,14 +352,17 @@ body {
 }
 
 .highlights-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    display: flex;
+    justify-content: center;
     gap: 20px;
+    flex-wrap: nowrap;
 }
 
 .highlight-card {
+    flex: 1;
+    max-width: 250px;
     background: var(--bg-color);
-    padding: 40px 30px;
+    padding: 30px 20px;
     border-radius: 16px;
     text-align: center;
     box-shadow: var(--shadow);
@@ -1473,7 +1476,11 @@ body {
     }
 
     .highlights-grid {
-        grid-template-columns: 1fr;
+        flex-wrap: wrap;
+    }
+    
+    .highlight-card {
+        max-width: 100%;
     }
 
     .gallery-grid {

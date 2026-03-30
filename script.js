@@ -246,6 +246,27 @@ function initMusicPlayer() {
     audioPlayer = new Audio();
     audioPlayer.volume = 0.7;
 
+    document.querySelectorAll('.playlist-item:not(.add-music)').forEach((item, index) => {
+        const url = item.dataset.url;
+        const title = item.querySelector('.playlist-item-title').textContent;
+        const artist = item.querySelector('.playlist-item-artist').textContent;
+        const duration = item.querySelector('.playlist-item-duration').textContent;
+        
+        if (url) {
+            playlist.push({
+                title: title,
+                artist: artist,
+                url: url,
+                duration: duration
+            });
+        }
+        
+        item.addEventListener('click', function() {
+            loadSong(index);
+            playSong();
+        });
+    });
+
     playBtn.addEventListener('click', togglePlay);
     prevBtn.addEventListener('click', playPrev);
     nextBtn.addEventListener('click', playNext);
@@ -269,6 +290,7 @@ function initMusicPlayer() {
 
     audioFileInput.addEventListener('change', function(e) {
         const files = Array.from(e.target.files);
+        const startIndex = playlist.length;
         files.forEach(file => {
             const url = URL.createObjectURL(file);
             const name = file.name.replace(/\.[^/.]+$/, '');
@@ -280,9 +302,6 @@ function initMusicPlayer() {
             });
         });
         updatePlaylistUI();
-        if (playlist.length === files.length) {
-            loadSong(0);
-        }
     });
 
     audioPlayer.addEventListener('timeupdate', updateProgress);
@@ -290,12 +309,8 @@ function initMusicPlayer() {
     audioPlayer.addEventListener('loadedmetadata', function() {
         document.getElementById('totalTime').textContent = formatTime(audioPlayer.duration);
     });
-
-    document.querySelectorAll('.playlist-item:not(.add-music)').forEach((item, index) => {
-        item.addEventListener('click', function() {
-            loadSong(index);
-            playSong();
-        });
+    audioPlayer.addEventListener('error', function(e) {
+        console.error('Audio error:', e);
     });
 
     initWaveformBars();

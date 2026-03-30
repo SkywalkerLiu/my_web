@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>摄影空间 - 刘怀宇</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">SkywalkerLiu</a>
+            <ul class="nav-links">
+                <li><a href="index.html">首页</a></li>
+                <li><a href="photography.html" class="active">摄影空间</a></li>
+                <li><a href="tools.html">妙妙工具</a></li>
+                <li><a href="contact.html">联系方式</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <section class="page-hero">
+        <div class="container">
+            <h1 class="page-title"><i class="fas fa-camera"></i> 摄影空间</h1>
+            <p class="page-subtitle">记录生活中的美好瞬间，用镜头捕捉世界的精彩</p>
+        </div>
+    </section>
+
+    <section class="gallery-section">
+        <div class="container">
+            <div class="gallery-filter">
+                <button class="filter-btn active" data-filter="all">全部</button>
+                <button class="filter-btn" data-filter="nature">自然风光</button>
+                <button class="filter-btn" data-filter="city">城市街景</button>
+                <button class="filter-btn" data-filter="portrait">人像</button>
+            </div>
+            
+            <div class="gallery-grid">
+                <div class="gallery-item" data-category="nature">
+                    <div class="gallery-placeholder">
+                        <i class="fas fa-mountain"></i>
+                        <span>山川湖海</span>
+                    </div>
+                    <div class="gallery-overlay">
+                        <h3>山川湖海</h3>
+                        <p>大自然的壮丽景色</p>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="city">
+                    <div class="gallery-placeholder">
+                        <i class="fas fa-city"></i>
+                        <span>城市夜景</span>
+                    </div>
+                    <div class="gallery-overlay">
+                        <h3>城市夜景</h3>
+                        <p>霓虹灯下的都市</p>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="nature">
+                    <div class="gallery-placeholder">
+                        <i class="fas fa-sun"></i>
+                        <span>日出日落</span>
+                    </div>
+                    <div class="gallery-overlay">
+                        <h3>日出日落</h3>
+                        <p>天际线的绚丽色彩</p>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="portrait">
+                    <div class="gallery-placeholder">
+                        <i class="fas fa-user-friends"></i>
+                        <span>人文纪实</span>
+                    </div>
+                    <div class="gallery-overlay">
+                        <h3>人文纪实</h3>
+                        <p>生活中的真实故事</p>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="city">
+                    <div class="gallery-placeholder">
+                        <i class="fas fa-road"></i>
+                        <span>街角巷尾</span>
+                    </div>
+                    <div class="gallery-overlay">
+                        <h3>街角巷尾</h3>
+                        <p>城市的角落之美</p>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="nature">
+                    <div class="gallery-placeholder">
+                        <i class="fas fa-leaf"></i>
+                        <span>四季变换</span>
+                    </div>
+                    <div class="gallery-overlay">
+                        <h3>四季变换</h3>
+                        <p>时光流转的痕迹</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="photography-info">
+        <div class="container">
+            <h2 class="section-title">关于我的摄影</h2>
+            <div class="info-content">
+                <div class="info-text">
+                    <p>摄影是我记录生活、表达情感的方式。每一张照片都承载着一个故事，一个瞬间的感动。</p>
+                    <p>我喜欢用镜头捕捉那些容易被忽视的美好：清晨的第一缕阳光、街角的老店铺、路人脸上的微笑...</p>
+                    <p>希望这些照片能带给你一些温暖和感动。</p>
+                </div>
+                <div class="equipment">
+                    <h3><i class="fas fa-camera-retro"></i> 常用设备</h3>
+                    <ul>
+                        <li>相机：Sony A7III</li>
+                        <li>镜头：24-70mm f/2.8 / 85mm f/1.8</li>
+                        <li>后期：Adobe Lightroom / Photoshop</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2026 SkywalkerLiu. All rights reserved.</p>
+                <div class="social-links">
+                    <a href="https://github.com/SkywalkerLiu" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

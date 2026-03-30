@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>妙妙工具 - 刘怀宇</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">SkywalkerLiu</a>
+            <ul class="nav-links">
+                <li><a href="index.html">首页</a></li>
+                <li><a href="photography.html">摄影空间</a></li>
+                <li><a href="tools.html" class="active">妙妙工具</a></li>
+                <li><a href="contact.html">联系方式</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <section class="page-hero">
+        <div class="container">
+            <h1 class="page-title"><i class="fas fa-tools"></i> 妙妙工具</h1>
+            <p class="page-subtitle">实用小工具集合，让生活更便捷</p>
+        </div>
+    </section>
+
+    <section class="tools-section">
+        <div class="container">
+            <div class="tools-grid">
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-calculator"></i>
+                    </div>
+                    <h3>在线计算器</h3>
+                    <p>支持基础运算和科学计算</p>
+                    <div class="tool-demo">
+                        <div class="calculator">
+                            <input type="text" class="calc-display" id="calcDisplay" readonly value="0">
+                            <div class="calc-buttons">
+                                <button onclick="clearCalc()">C</button>
+                                <button onclick="appendCalc('(')">(</button>
+                                <button onclick="appendCalc(')')">)</button>
+                                <button onclick="appendCalc('/')">/</button>
+                                <button onclick="appendCalc('7')">7</button>
+                                <button onclick="appendCalc('8')">8</button>
+                                <button onclick="appendCalc('9')">9</button>
+                                <button onclick="appendCalc('*')">×</button>
+                                <button onclick="appendCalc('4')">4</button>
+                                <button onclick="appendCalc('5')">5</button>
+                                <button onclick="appendCalc('6')">6</button>
+                                <button onclick="appendCalc('-')">-</button>
+                                <button onclick="appendCalc('1')">1</button>
+                                <button onclick="appendCalc('2')">2</button>
+                                <button onclick="appendCalc('3')">3</button>
+                                <button onclick="appendCalc('+')">+</button>
+                                <button onclick="appendCalc('0')">0</button>
+                                <button onclick="appendCalc('.')">.</button>
+                                <button onclick="calculateResult()" class="equals">=</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <h3>颜色转换器</h3>
+                    <p>HEX、RGB、HSL 互转</p>
+                    <div class="tool-demo">
+                        <div class="color-converter">
+                            <div class="color-preview" id="colorPreview"></div>
+                            <div class="color-inputs">
+                                <div class="color-input-group">
+                                    <label>HEX</label>
+                                    <input type="text" id="hexInput" placeholder="#6366f1" value="#6366f1">
+                                </div>
+                                <div class="color-input-group">
+                                    <label>RGB</label>
+                                    <input type="text" id="rgbInput" placeholder="99, 102, 241" value="99, 102, 241">
+                                </div>
+                            </div>
+                            <button onclick="convertColor()" class="btn btn-primary">转换</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-font"></i>
+                    </div>
+                    <h3>字数统计</h3>
+                    <p>统计文本字数、字符数</p>
+                    <div class="tool-demo">
+                        <div class="text-counter">
+                            <textarea id="textToCount" placeholder="在此输入文本..."></textarea>
+                            <div class="count-result">
+                                <span>字符数：<strong id="charCount">0</strong></span>
+                                <span>字数：<strong id="wordCount">0</strong></span>
+                                <span>行数：<strong id="lineCount">0</strong></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-link"></i>
+                    </div>
+                    <h3>URL 编解码</h3>
+                    <p>URL 编码与解码工具</p>
+                    <div class="tool-demo">
+                        <div class="url-encoder">
+                            <textarea id="urlInput" placeholder="输入需要编码/解码的URL..."></textarea>
+                            <div class="encoder-buttons">
+                                <button onclick="encodeURL()" class="btn btn-primary">编码</button>
+                                <button onclick="decodeURL()" class="btn btn-secondary">解码</button>
+                            </div>
+                            <textarea id="urlOutput" placeholder="结果将显示在这里..." readonly></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>时间戳转换</h3>
+                    <p>时间戳与日期互转</p>
+                    <div class="tool-demo">
+                        <div class="timestamp-converter">
+                            <div class="timestamp-group">
+                                <label>当前时间戳</label>
+                                <input type="text" id="currentTimestamp" readonly>
+                            </div>
+                            <div class="timestamp-group">
+                                <label>输入时间戳</label>
+                                <input type="text" id="timestampInput" placeholder="输入时间戳">
+                            </div>
+                            <button onclick="convertTimestamp()" class="btn btn-primary">转换为日期</button>
+                            <div class="timestamp-result" id="timestampResult"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-random"></i>
+                    </div>
+                    <h3>随机密码生成</h3>
+                    <p>生成安全的随机密码</p>
+                    <div class="tool-demo">
+                        <div class="password-generator">
+                            <input type="text" id="generatedPassword" readonly placeholder="点击生成密码">
+                            <div class="password-options">
+                                <label><input type="checkbox" id="includeUpper" checked> 大写字母</label>
+                                <label><input type="checkbox" id="includeLower" checked> 小写字母</label>
+                                <label><input type="checkbox" id="includeNumbers" checked> 数字</label>
+                                <label><input type="checkbox" id="includeSymbols"> 符号</label>
+                            </div>
+                            <div class="password-length">
+                                <label>长度：<span id="lengthValue">12</span></label>
+                                <input type="range" id="passwordLength" min="6" max="32" value="12">
+                            </div>
+                            <button onclick="generatePassword()" class="btn btn-primary">生成密码</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2026 SkywalkerLiu. All rights reserved.</p>
+                <div class="social-links">
+                    <a href="https://github.com/SkywalkerLiu" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -11,13 +11,12 @@
 <body>
     <nav class="navbar">
         <div class="nav-container">
-            <a href="#" class="logo">SkywalkerLiu</a>
+            <a href="index.html" class="logo">SkywalkerLiu</a>
             <ul class="nav-links">
-                <li><a href="#home">首页</a></li>
-                <li><a href="#about">关于我</a></li>
-                <li><a href="#skills">技能</a></li>
-                <li><a href="#projects">项目</a></li>
-                <li><a href="#contact">联系</a></li>
+                <li><a href="index.html" class="active">首页</a></li>
+                <li><a href="photography.html">摄影空间</a></li>
+                <li><a href="tools.html">妙妙工具</a></li>
+                <li><a href="contact.html">联系方式</a></li>
             </ul>
             <div class="hamburger">
                 <span></span>
@@ -33,8 +32,8 @@
             <p class="subtitle">全栈开发者 | 技术爱好者</p>
             <p class="description">热爱编程，追求卓越，用代码创造价值</p>
             <div class="hero-buttons">
-                <a href="#projects" class="btn btn-primary">查看项目</a>
-                <a href="#contact" class="btn btn-secondary">联系我</a>
+                <a href="tools.html" class="btn btn-primary">妙妙工具</a>
+                <a href="contact.html" class="btn btn-secondary">联系我</a>
             </div>
         </div>
         <div class="hero-image">
@@ -107,101 +106,31 @@
         </div>
     </section>
 
-    <section id="projects" class="projects">
+    <section id="highlights" class="highlights">
         <div class="container">
-            <h2 class="section-title">项目展示</h2>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <div class="project-image">
-                        <i class="fas fa-globe"></i>
+            <h2 class="section-title">精彩内容</h2>
+            <div class="highlights-grid">
+                <a href="photography.html" class="highlight-card">
+                    <div class="highlight-icon">
+                        <i class="fas fa-camera"></i>
                     </div>
-                    <div class="project-info">
-                        <h3>个人博客系统</h3>
-                        <p>基于 Vue.js 和 Node.js 开发的全栈博客系统，支持 Markdown 编辑、评论、搜索等功能。</p>
-                        <div class="project-tags">
-                            <span>Vue.js</span>
-                            <span>Node.js</span>
-                            <span>MongoDB</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="#"><i class="fab fa-github"></i> 源码</a>
-                            <a href="#"><i class="fas fa-external-link-alt"></i> 演示</a>
-                        </div>
+                    <h3>摄影空间</h3>
+                    <p>记录生活中的美好瞬间</p>
+                </a>
+                <a href="tools.html" class="highlight-card">
+                    <div class="highlight-icon">
+                        <i class="fas fa-tools"></i>
                     </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-image">
-                        <i class="fas fa-mobile-alt"></i>
+                    <h3>妙妙工具</h3>
+                    <p>实用小工具集合</p>
+                </a>
+                <a href="contact.html" class="highlight-card">
+                    <div class="highlight-icon">
+                        <i class="fas fa-envelope"></i>
                     </div>
-                    <div class="project-info">
-                        <h3>任务管理应用</h3>
-                        <p>跨平台任务管理应用，支持任务分类、提醒、数据同步等功能。</p>
-                        <div class="project-tags">
-                            <span>React Native</span>
-                            <span>Firebase</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="#"><i class="fab fa-github"></i> 源码</a>
-                            <a href="#"><i class="fas fa-external-link-alt"></i> 演示</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-image">
-                        <i class="fas fa-robot"></i>
-                    </div>
-                    <div class="project-info">
-                        <h3>AI 助手工具</h3>
-                        <p>集成多种 AI API 的智能助手工具，支持文本分析、图像识别等功能。</p>
-                        <div class="project-tags">
-                            <span>Python</span>
-                            <span>FastAPI</span>
-                            <span>AI</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="#"><i class="fab fa-github"></i> 源码</a>
-                            <a href="#"><i class="fas fa-external-link-alt"></i> 演示</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2 class="section-title">联系我</h2>
-            <div class="contact-content">
-                <div class="contact-info">
-                    <h3>欢迎与我联系</h3>
-                    <p>如果你有任何问题、合作意向或只是想打个招呼，欢迎通过以下方式联系我：</p>
-                    <div class="contact-links">
-                        <a href="mailto:your.email@example.com" class="contact-item">
-                            <i class="fas fa-envelope"></i>
-                            <span>your.email@example.com</span>
-                        </a>
-                        <a href="https://github.com/SkywalkerLiu" class="contact-item" target="_blank">
-                            <i class="fab fa-github"></i>
-                            <span>GitHub</span>
-                        </a>
-                        <a href="#" class="contact-item">
-                            <i class="fab fa-linkedin"></i>
-                            <span>LinkedIn</span>
-                        </a>
-                    </div>
-                </div>
-                <form class="contact-form">
-                    <div class="form-group">
-                        <input type="text" placeholder="你的名字" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="email" placeholder="你的邮箱" required>
-                    </div>
-                    <div class="form-group">
-                        <textarea placeholder="你的留言" rows="5" required></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary">发送消息</button>
-                </form>
+                    <h3>联系方式</h3>
+                    <p>期待与您交流</p>
+                </a>
             </div>
         </div>
     </section>

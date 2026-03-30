@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>联系方式 - Skywalker</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">Skywalker</a>
+            <ul class="nav-links">
+                <li><a href="index.html">首页</a></li>
+                <li><a href="photography.html">摄影空间</a></li>
+                <li><a href="tools.html">妙妙工具</a></li>
+                <li><a href="contact.html" class="active">联系方式</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <section class="page-hero">
+        <div class="container">
+            <h1 class="page-title"><i class="fas fa-envelope"></i> 联系方式</h1>
+            <p class="page-subtitle">期待与您的交流，欢迎通过以下方式联系我</p>
+        </div>
+    </section>
+
+    <section class="contact-section">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-cards">
+                    <a href="mailto:your.email@example.com" class="contact-card">
+                        <div class="contact-card-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <h3>电子邮箱</h3>
+                        <p>your.email@example.com</p>
+                        <span class="contact-hint">点击发送邮件</span>
+                    </a>
+                    <a href="https://github.com/SkywalkerLiu" target="_blank" class="contact-card">
+                        <div class="contact-card-icon">
+                            <i class="fab fa-github"></i>
+                        </div>
+                        <h3>GitHub</h3>
+                        <p>SkywalkerLiu</p>
+                        <span class="contact-hint">访问主页</span>
+                    </a>
+                    <a href="#" class="contact-card">
+                        <div class="contact-card-icon">
+                            <i class="fab fa-linkedin"></i>
+                        </div>
+                        <h3>LinkedIn</h3>
+                        <p>Skywalker</p>
+                        <span class="contact-hint">职业社交</span>
+                    </a>
+                    <a href="#" class="contact-card">
+                        <div class="contact-card-icon">
+                            <i class="fab fa-weixin"></i>
+                        </div>
+                        <h3>微信</h3>
+                        <p>扫描二维码添加</p>
+                        <span class="contact-hint">扫码添加</span>
+                    </a>
+                </div>
+
+                <div class="contact-form-section">
+                    <h2>发送消息</h2>
+                    <p>有任何问题或合作意向，欢迎留言：</p>
+                    <form class="contact-form" id="contactForm">
+                        <div class="form-group">
+                            <label for="name">您的姓名</label>
+                            <input type="text" id="name" name="name" placeholder="请输入您的姓名" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">电子邮箱</label>
+                            <input type="email" id="email" name="email" placeholder="请输入您的邮箱" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">主题</label>
+                            <select id="subject" name="subject">
+                                <option value="general">一般咨询</option>
+                                <option value="collaboration">项目合作</option>
+                                <option value="job">工作机会</option>
+                                <option value="other">其他</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">留言内容</label>
+                            <textarea id="message" name="message" rows="5" placeholder="请输入您的留言..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-full">
+                            <i class="fas fa-paper-plane"></i> 发送消息
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq-section">
+        <div class="container">
+            <h2 class="section-title">常见问题</h2>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>如何与您进行项目合作？</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>您可以通过上方的联系表单或直接发送邮件给我，描述您的项目需求。我会在24小时内回复您。</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>您接受远程工作吗？</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>是的，我接受远程工作机会。无论是全职、兼职还是项目制合作，都欢迎联系。</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>回复时间通常是多久？</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>通常我会在24小时内回复邮件。如果是紧急事项，建议通过微信联系。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2026 SkywalkerLiu. All rights reserved.</p>
+                <div class="social-links">
+                    <a href="https://github.com/SkywalkerLiu" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

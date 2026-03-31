@@ -998,7 +998,7 @@ body {
 
 .sponsor {
     padding: 100px 0;
-    background: var(--bg-secondary);
+    background: var(--bg-color);
 }
 
 .sponsor-intro {
@@ -1167,6 +1167,8 @@ body {
 }
 
 .waveform-container {
+    position: relative;
+    width: 100%;
     height: 80px;
     margin-bottom: 30px;
     display: flex;
@@ -1176,16 +1178,23 @@ body {
 }
 
 #waveformCanvas {
+    position: absolute;
+    inset: 0;
     width: 100%;
     height: 100%;
+    opacity: 0;
+    pointer-events: none;
 }
 
 .waveform-bars {
+    position: relative;
     display: flex;
+    flex: 0 0 auto;
     align-items: center;
     justify-content: center;
     gap: 4px;
     height: 100%;
+    margin: 0 auto;
 }
 
 .waveform-bars span {

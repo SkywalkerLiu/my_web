@@ -1336,6 +1336,7 @@ body {
 #volumeSlider {
     width: 120px;
     height: 6px;
+    appearance: none;
     -webkit-appearance: none;
     background: rgba(255, 255, 255, 0.2);
     border-radius: 3px;
@@ -1343,6 +1344,7 @@ body {
 }
 
 #volumeSlider::-webkit-slider-thumb {
+    appearance: none;
     -webkit-appearance: none;
     width: 16px;
     height: 16px;

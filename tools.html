@@ -42,7 +42,7 @@
                         <i class="fas fa-calculator"></i>
                     </div>
                     <h3>在线计算器</h3>
-                    <p>支持基础运算和科学计算</p>
+                    <p>支持基础四则运算与括号表达式。</p>
                     <div class="tool-demo">
                         <div class="calculator">
                             <input type="text" class="calc-display" id="calcDisplay" readonly value="0">
@@ -76,7 +76,7 @@
                         <i class="fas fa-palette"></i>
                     </div>
                     <h3>颜色转换器</h3>
-                    <p>HEX、RGB、HSL 互转</p>
+                    <p>输入 HEX 值，实时查看 RGB 结果与颜色预览。</p>
                     <div class="tool-demo">
                         <div class="color-converter">
                             <div class="color-preview" id="colorPreview"></div>
@@ -87,7 +87,7 @@
                                 </div>
                                 <div class="color-input-group">
                                     <label>RGB</label>
-                                    <input type="text" id="rgbInput" placeholder="99, 102, 241" value="99, 102, 241">
+                                    <input type="text" id="rgbInput" placeholder="99, 102, 241" value="99, 102, 241" readonly>
                                 </div>
                             </div>
                             <button onclick="convertColor()" class="btn btn-primary">转换</button>
@@ -100,13 +100,13 @@
                         <i class="fas fa-font"></i>
                     </div>
                     <h3>字数统计</h3>
-                    <p>统计文本字数、字符数</p>
+                    <p>统计文本字符数、词数与行数。</p>
                     <div class="tool-demo">
                         <div class="text-counter">
                             <textarea id="textToCount" placeholder="在此输入文本..."></textarea>
                             <div class="count-result">
                                 <span>字符数：<strong id="charCount">0</strong></span>
-                                <span>字数：<strong id="wordCount">0</strong></span>
+                                <span>词数：<strong id="wordCount">0</strong></span>
                                 <span>行数：<strong id="lineCount">0</strong></span>
                             </div>
                         </div>
@@ -118,10 +118,10 @@
                         <i class="fas fa-link"></i>
                     </div>
                     <h3>URL 编解码</h3>
-                    <p>URL 编码与解码工具</p>
+                    <p>快速进行 URL 编码与解码转换。</p>
                     <div class="tool-demo">
                         <div class="url-encoder">
-                            <textarea id="urlInput" placeholder="输入需要编码/解码的URL..."></textarea>
+                            <textarea id="urlInput" placeholder="输入需要编码或解码的 URL..."></textarea>
                             <div class="encoder-buttons">
                                 <button onclick="encodeURL()" class="btn btn-primary">编码</button>
                                 <button onclick="decodeURL()" class="btn btn-secondary">解码</button>
@@ -136,7 +136,7 @@
                         <i class="fas fa-clock"></i>
                     </div>
                     <h3>时间戳转换</h3>
-                    <p>时间戳与日期互转</p>
+                    <p>将 Unix 时间戳快速转换为本地日期时间。</p>
                     <div class="tool-demo">
                         <div class="timestamp-converter">
                             <div class="timestamp-group">
@@ -158,7 +158,7 @@
                         <i class="fas fa-random"></i>
                     </div>
                     <h3>随机密码生成</h3>
-                    <p>生成安全的随机密码</p>
+                    <p>生成安全的随机密码，并支持字符类型选择。</p>
                     <div class="tool-demo">
                         <div class="password-generator">
                             <input type="text" id="generatedPassword" readonly placeholder="点击生成密码">
@@ -185,9 +185,15 @@
             <div class="footer-content">
                 <p>&copy; 2026 Skywalker. All rights reserved.</p>
                 <div class="social-links">
-                    <a href="https://github.com/SkywalkerLiu" target="_blank"><i class="fab fa-github"></i></a>
-                    <a href="#"><i class="fab fa-linkedin"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="https://github.com/SkywalkerLiu" target="_blank" rel="noreferrer" aria-label="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="#" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="#" aria-label="Twitter">
+                        <i class="fab fa-twitter"></i>
+                    </a>
                 </div>
             </div>
         </div>

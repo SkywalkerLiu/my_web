@@ -6,6 +6,7 @@
     <title>妙妙工具 - Skywalker</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
@@ -36,6 +37,222 @@
 
     <section class="tools-section">
         <div class="container">
+            <div class="mc-tool-shell" id="monteCarloTool">
+                <div class="mc-tool-banner">
+                    <div class="mc-tool-intro">
+                        <p class="mc-eyebrow">全新上线 · 浏览器本地运行</p>
+                        <h2><i class="fas fa-chart-line"></i> 蒙特卡洛定投计算器</h2>
+                        <p class="mc-lead">
+                            把桌面版的定投模拟搬到了“妙妙工具”页里。输入你的投资参数，直接在浏览器中查看路径波动、
+                            分位区间、终值分布和极端事件覆盖摘要。
+                        </p>
+                    </div>
+                    <div class="mc-banner-pills" aria-label="工具特性">
+                        <span><i class="fas fa-shield-alt"></i> 数据仅在本地浏览器计算</span>
+                        <span><i class="fas fa-bolt"></i> Web Worker 后台模拟</span>
+                        <span><i class="fas fa-chart-area"></i> 三种图表视图切换</span>
+                    </div>
+                </div>
+
+                <div class="mc-tool-layout">
+                    <section class="mc-panel mc-form-panel" aria-labelledby="mcFormTitle">
+                        <div class="mc-panel-head">
+                            <div>
+                                <p class="mc-kicker">说明区</p>
+                                <h3 id="mcFormTitle">输入投资参数</h3>
+                            </div>
+                            <p class="mc-muted">
+                                极端事件频率按“平均每隔多少年发生 1 次”建模，结果适合做区间判断，不代表未来收益承诺。
+                            </p>
+                        </div>
+
+                        <div class="mc-inline-note">
+                            <i class="fas fa-circle-info"></i>
+                            <span>默认参数与桌面版保持一致，金额显示采用通用格式，不绑定特定货币。</span>
+                        </div>
+
+                        <form class="mc-form" id="mcCalculatorForm" novalidate>
+                            <div class="mc-input-grid">
+                                <label class="mc-field">
+                                    <span>当前持有金额</span>
+                                    <div class="mc-input-with-unit">
+                                        <input id="currentHolding" name="currentHolding" type="number" min="0" step="1000" value="0" inputmode="decimal">
+                                        <span>金额</span>
+                                    </div>
+                                </label>
+
+                                <label class="mc-field">
+                                    <span>每月定投金额</span>
+                                    <div class="mc-input-with-unit">
+                                        <input id="monthlyInvestment" name="monthlyInvestment" type="number" min="0" step="100" value="1500" inputmode="decimal">
+                                        <span>每月</span>
+                                    </div>
+                                </label>
+
+                                <label class="mc-field">
+                                    <span>预期年化收益率</span>
+                                    <div class="mc-input-with-unit">
+                                        <input id="expectedAnnualReturn" name="expectedAnnualReturn" type="number" min="-99.9" step="0.1" value="15" inputmode="decimal">
+                                        <span>%</span>
+                                    </div>
+                                </label>
+
+                                <label class="mc-field">
+                                    <span>投资年限</span>
+                                    <div class="mc-input-with-unit">
+                                        <input id="investmentYears" name="investmentYears" type="number" min="1" max="50" step="1" value="30" inputmode="numeric">
+                                        <span>年</span>
+                                    </div>
+                                </label>
+
+                                <label class="mc-field">
+                                    <span>极端回撤幅度</span>
+                                    <div class="mc-input-with-unit">
+                                        <input id="crashDrawdown" name="crashDrawdown" type="number" min="0" max="100" step="0.1" value="50" inputmode="decimal">
+                                        <span>%</span>
+                                    </div>
+                                </label>
+
+                                <label class="mc-field">
+                                    <span>极端事件间隔</span>
+                                    <div class="mc-input-with-unit">
+                                        <input id="crashIntervalYears" name="crashIntervalYears" type="number" min="0.5" max="200" step="0.1" value="15" inputmode="decimal">
+                                        <span>年/次</span>
+                                    </div>
+                                </label>
+                            </div>
+
+                            <div class="mc-advanced">
+                                <button class="mc-advanced-toggle" id="mcAdvancedToggle" type="button" aria-expanded="false" aria-controls="mcAdvancedFields">
+                                    <span><i class="fas fa-sliders"></i> 高级设置</span>
+                                    <i class="fas fa-chevron-down mc-toggle-icon" aria-hidden="true"></i>
+                                </button>
+
+                                <div class="mc-advanced-fields" id="mcAdvancedFields" hidden>
+                                    <div class="mc-input-grid mc-input-grid-advanced">
+                                        <label class="mc-field">
+                                            <span>年化波动率</span>
+                                            <div class="mc-input-with-unit">
+                                                <input id="annualVolatility" name="annualVolatility" type="number" min="0" max="100" step="0.1" value="20" inputmode="decimal">
+                                                <span>%</span>
+                                            </div>
+                                        </label>
+
+                                        <label class="mc-field">
+                                            <span>模拟次数</span>
+                                            <div class="mc-input-with-unit">
+                                                <input id="simulationCount" name="simulationCount" type="number" min="1000" max="10000" step="1000" value="5000" inputmode="numeric">
+                                                <span>次</span>
+                                            </div>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="mc-action-row">
+                                <button id="mcRunButton" class="btn btn-primary mc-run-button" type="submit">开始计算</button>
+                                <button id="mcResetButton" class="btn btn-secondary" type="button">恢复默认</button>
+                            </div>
+
+                            <p class="mc-status" id="mcStatus" data-state="idle">填写参数后即可开始计算。</p>
+                            <p class="mc-error" id="mcValidationMessage" hidden></p>
+                        </form>
+                    </section>
+
+                    <section class="mc-panel mc-results-panel" aria-labelledby="mcResultsTitle">
+                        <div class="mc-panel-head">
+                            <div>
+                                <p class="mc-kicker">结果区</p>
+                                <h3 id="mcResultsTitle">模拟结果概览</h3>
+                            </div>
+                            <p class="mc-muted">主指标使用千分位分隔展示，图表坐标会自动切换紧凑单位。</p>
+                        </div>
+
+                        <div class="mc-metrics-grid">
+                            <article class="mc-metric-card">
+                                <span class="mc-metric-label">终值中位数</span>
+                                <strong class="mc-metric-value" id="mcMedianValue">--</strong>
+                                <p class="mc-metric-caption">更适合作为中性情境参考。</p>
+                            </article>
+
+                            <article class="mc-metric-card">
+                                <span class="mc-metric-label">10 / 90 分位区间</span>
+                                <strong class="mc-metric-value" id="mcRangeValue">--</strong>
+                                <p class="mc-metric-caption">观察结果分布的上下边界。</p>
+                            </article>
+
+                            <article class="mc-metric-card">
+                                <span class="mc-metric-label">总投入</span>
+                                <strong class="mc-metric-value" id="mcPrincipalValue">--</strong>
+                                <p class="mc-metric-caption">当前持有加未来全部定投。</p>
+                            </article>
+
+                            <article class="mc-metric-card">
+                                <span class="mc-metric-label">亏损概率</span>
+                                <strong class="mc-metric-value" id="mcLossValue">--</strong>
+                                <p class="mc-metric-caption">终值低于总投入的概率。</p>
+                            </article>
+                        </div>
+
+                        <div class="mc-summary-block">
+                            <div class="mc-summary-head">
+                                <h4>极端事件覆盖摘要</h4>
+                                <span class="mc-summary-tag" id="mcSummaryTag">等待计算</span>
+                            </div>
+                            <p id="mcEventSummary">完成计算后，这里会展示极端事件触发频率、平均触发次数和事件分布。</p>
+
+                            <div class="mc-crash-grid">
+                                <div class="mc-crash-item">
+                                    <span>0 次事件</span>
+                                    <strong id="mcCrashZero">--</strong>
+                                </div>
+                                <div class="mc-crash-item">
+                                    <span>1 次事件</span>
+                                    <strong id="mcCrashOne">--</strong>
+                                </div>
+                                <div class="mc-crash-item">
+                                    <span>2 次事件</span>
+                                    <strong id="mcCrashTwo">--</strong>
+                                </div>
+                                <div class="mc-crash-item">
+                                    <span>3 次及以上</span>
+                                    <strong id="mcCrashThreePlus">--</strong>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mc-chart-header">
+                            <div>
+                                <h4>图表区</h4>
+                                <p>切换查看样本路径、分位区间和终值分布。</p>
+                            </div>
+
+                            <div class="mc-chart-switcher" role="tablist" aria-label="图表视图切换">
+                                <button class="mc-chart-tab is-active" type="button" data-chart="paths" role="tab" aria-selected="true">样本路径图</button>
+                                <button class="mc-chart-tab" type="button" data-chart="fan" role="tab" aria-selected="false">分位扇形图</button>
+                                <button class="mc-chart-tab" type="button" data-chart="hist" role="tab" aria-selected="false">终值直方图</button>
+                            </div>
+                        </div>
+
+                        <div class="mc-chart-fallback" id="mcChartFallback" hidden>
+                            图表库暂时不可用，参数计算与结果摘要仍可正常使用。
+                        </div>
+
+                        <div class="mc-chart-stack" id="mcChartStack">
+                            <div class="mc-chart-panel is-active" data-panel="paths" role="tabpanel">
+                                <canvas id="mcPathsChart" aria-label="样本路径图" role="img"></canvas>
+                            </div>
+                            <div class="mc-chart-panel" data-panel="fan" role="tabpanel" hidden>
+                                <canvas id="mcFanChart" aria-label="分位扇形图" role="img"></canvas>
+                            </div>
+                            <div class="mc-chart-panel" data-panel="hist" role="tabpanel" hidden>
+                                <canvas id="mcHistChart" aria-label="终值直方图" role="img"></canvas>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+
             <div class="tools-grid">
                 <div class="tool-card">
                     <div class="tool-icon">
@@ -199,6 +416,9 @@
         </div>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
     <script src="script.js"></script>
+    <script src="tools-monte-carlo-core.js"></script>
+    <script src="tools-calculator.js"></script>
 </body>
 </html>

@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>妙妙工具 - Skywalker</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/tools.css">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -20,11 +21,11 @@
                 <li><a href="music.html">优美音乐</a></li>
                 <li><a href="contact.html">联系方式</a></li>
             </ul>
-            <div class="hamburger">
+            <button class="hamburger" type="button" aria-expanded="false" aria-label="打开导航菜单">
                 <span></span>
                 <span></span>
                 <span></span>
-            </div>
+            </button>
         </div>
     </nav>
 
@@ -264,25 +265,25 @@
                         <div class="calculator">
                             <input type="text" class="calc-display" id="calcDisplay" readonly value="0">
                             <div class="calc-buttons">
-                                <button onclick="clearCalc()">C</button>
-                                <button onclick="appendCalc('(')">(</button>
-                                <button onclick="appendCalc(')')">)</button>
-                                <button onclick="appendCalc('/')">/</button>
-                                <button onclick="appendCalc('7')">7</button>
-                                <button onclick="appendCalc('8')">8</button>
-                                <button onclick="appendCalc('9')">9</button>
-                                <button onclick="appendCalc('*')">×</button>
-                                <button onclick="appendCalc('4')">4</button>
-                                <button onclick="appendCalc('5')">5</button>
-                                <button onclick="appendCalc('6')">6</button>
-                                <button onclick="appendCalc('-')">-</button>
-                                <button onclick="appendCalc('1')">1</button>
-                                <button onclick="appendCalc('2')">2</button>
-                                <button onclick="appendCalc('3')">3</button>
-                                <button onclick="appendCalc('+')">+</button>
-                                <button onclick="appendCalc('0')">0</button>
-                                <button onclick="appendCalc('.')">.</button>
-                                <button onclick="calculateResult()" class="equals">=</button>
+                                <button id="calcClearBtn" type="button">C</button>
+                                <button type="button" data-calc-value="(">(</button>
+                                <button type="button" data-calc-value=")">)</button>
+                                <button type="button" data-calc-value="/">/</button>
+                                <button type="button" data-calc-value="7">7</button>
+                                <button type="button" data-calc-value="8">8</button>
+                                <button type="button" data-calc-value="9">9</button>
+                                <button type="button" data-calc-value="*">×</button>
+                                <button type="button" data-calc-value="4">4</button>
+                                <button type="button" data-calc-value="5">5</button>
+                                <button type="button" data-calc-value="6">6</button>
+                                <button type="button" data-calc-value="-">-</button>
+                                <button type="button" data-calc-value="1">1</button>
+                                <button type="button" data-calc-value="2">2</button>
+                                <button type="button" data-calc-value="3">3</button>
+                                <button type="button" data-calc-value="+">+</button>
+                                <button type="button" data-calc-value="0">0</button>
+                                <button type="button" data-calc-value=".">.</button>
+                                <button id="calcEqualsBtn" type="button" class="equals">=</button>
                             </div>
                         </div>
                     </div>
@@ -307,7 +308,7 @@
                                     <input type="text" id="rgbInput" placeholder="99, 102, 241" value="99, 102, 241" readonly>
                                 </div>
                             </div>
-                            <button onclick="convertColor()" class="btn btn-primary">转换</button>
+                            <button id="colorConvertBtn" type="button" class="btn btn-primary">转换</button>
                         </div>
                     </div>
                 </div>
@@ -340,8 +341,8 @@
                         <div class="url-encoder">
                             <textarea id="urlInput" placeholder="输入需要编码或解码的 URL..."></textarea>
                             <div class="encoder-buttons">
-                                <button onclick="encodeURL()" class="btn btn-primary">编码</button>
-                                <button onclick="decodeURL()" class="btn btn-secondary">解码</button>
+                                <button id="encodeUrlBtn" type="button" class="btn btn-primary">编码</button>
+                                <button id="decodeUrlBtn" type="button" class="btn btn-secondary">解码</button>
                             </div>
                             <textarea id="urlOutput" placeholder="结果将显示在这里..." readonly></textarea>
                         </div>
@@ -364,7 +365,7 @@
                                 <label>输入时间戳</label>
                                 <input type="text" id="timestampInput" placeholder="输入时间戳">
                             </div>
-                            <button onclick="convertTimestamp()" class="btn btn-primary">转换为日期</button>
+                            <button id="timestampConvertBtn" type="button" class="btn btn-primary">转换为日期</button>
                             <div class="timestamp-result" id="timestampResult"></div>
                         </div>
                     </div>
@@ -389,7 +390,7 @@
                                 <label>长度：<span id="lengthValue">12</span></label>
                                 <input type="range" id="passwordLength" min="6" max="32" value="12">
                             </div>
-                            <button onclick="generatePassword()" class="btn btn-primary">生成密码</button>
+                            <button id="passwordGenerateBtn" type="button" class="btn btn-primary">生成密码</button>
                         </div>
                     </div>
                 </div>
@@ -416,9 +417,10 @@
         </div>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
-    <script src="script.js"></script>
-    <script src="tools-monte-carlo-core.js"></script>
-    <script src="tools-calculator.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js" defer></script>
+    <script src="js/common.js" defer></script>
+    <script src="js/tools.js" defer></script>
+    <script src="js/monte-carlo-core.js" defer></script>
+    <script src="js/monte-carlo-ui.js" defer></script>
 </body>
 </html>

@@ -676,7 +676,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function createWorker() {
-        const workerUrl = new URL('tools-monte-carlo-worker.js', window.location.href)
+        const workerUrl = new URL('js/monte-carlo-worker.js', window.location.href)
         return new Worker(workerUrl)
     }
 

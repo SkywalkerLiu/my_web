@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>联系方式 - Skywalker</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/contact.css">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -19,11 +20,11 @@
                 <li><a href="music.html">优美音乐</a></li>
                 <li><a href="contact.html" class="active">联系方式</a></li>
             </ul>
-            <div class="hamburger">
+            <button class="hamburger" type="button" aria-expanded="false" aria-label="打开导航菜单">
                 <span></span>
                 <span></span>
                 <span></span>
-            </div>
+            </button>
         </div>
     </nav>
 
@@ -111,28 +112,28 @@
             <h2 class="section-title">常见问题</h2>
             <div class="faq-list">
                 <div class="faq-item">
-                    <div class="faq-question">
+                    <button class="faq-question" type="button">
                         <span>如何与您进行项目合作？</span>
                         <i class="fas fa-chevron-down"></i>
-                    </div>
+                    </button>
                     <div class="faq-answer">
                         <p>您可以通过上方的联系表单或直接发送邮件给我，描述您的项目需求。我会在 24 小时内回复您。</p>
                     </div>
                 </div>
                 <div class="faq-item">
-                    <div class="faq-question">
+                    <button class="faq-question" type="button">
                         <span>您接受远程工作吗？</span>
                         <i class="fas fa-chevron-down"></i>
-                    </div>
+                    </button>
                     <div class="faq-answer">
                         <p>是的，我接受远程工作机会。无论是全职、兼职还是项目制合作，都欢迎联系。</p>
                     </div>
                 </div>
                 <div class="faq-item">
-                    <div class="faq-question">
+                    <button class="faq-question" type="button">
                         <span>回复时间通常是多久？</span>
                         <i class="fas fa-chevron-down"></i>
-                    </div>
+                    </button>
                     <div class="faq-answer">
                         <p>通常我会在 24 小时内回复邮件。如果是紧急事项，建议先通过邮箱说明情况。</p>
                     </div>
@@ -160,6 +161,7 @@
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="js/common.js" defer></script>
+    <script src="js/contact.js" defer></script>
 </body>
 </html>

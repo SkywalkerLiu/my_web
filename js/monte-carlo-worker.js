@@ -1,4 +1,4 @@
-importScripts('tools-monte-carlo-core.js')
+importScripts('monte-carlo-core.js')
 
 self.addEventListener('message', event => {
     const data = event.data || {}
